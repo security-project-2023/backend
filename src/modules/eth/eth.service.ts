@@ -599,18 +599,19 @@ export class EthService {
     return balance;
   }
 
-  async createTicket(user: Express.User, productId: string) {
-    const product = await this.productRepository.findOneBy({ id: productId });
-    if (!product) {
-      throw new HttpException('Product not found', HttpStatus.NOT_FOUND);
-    }
-
-    const construct = await this.ticketsContract.methods.createTicket(
-      user.id,
-      product.title,
-      product.prices,
-      'test',
-      'test',
-    );
+  async createTicket(user: Express.User, purchaseId: string) {
+    //   const purchaseId = await this.productRepository.findOneBy({
+    //     id: productId,
+    //   });
+    //   if (!product) {
+    //     throw new HttpException('Product not found', HttpStatus.NOT_FOUND);
+    //   }
+    //   const construct = await this.ticketsContract.methods.createTicket(
+    //     user.id,
+    //     product.title,
+    //     product.prices,
+    //     'test',
+    //     'test',
+    //   );
   }
 }
