@@ -9,6 +9,7 @@ import { UserModule } from '../user/user.module';
 import { AuthModule } from '../auth/auth.module';
 import { ProductModule } from '../product/product.module';
 import { AdminJSModule } from 'src/shared/providers/admin.module';
+import { EthModule } from '../eth/eth.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { AdminJSModule } from 'src/shared/providers/admin.module';
     UserModule,
     ProductModule,
     AdminJSModule,
+    EthModule,
   ],
   controllers: [RootController],
   providers: [RootService],

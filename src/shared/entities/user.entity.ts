@@ -3,10 +3,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
+import { Purchase } from './purchase.entity';
 
 @Entity()
 export class User extends BaseEntity {
@@ -27,4 +29,7 @@ export class User extends BaseEntity {
   @UpdateDateColumn()
   @Exclude()
   updatedAt!: Date;
+
+  @OneToMany(() => Purchase, (purchase) => purchase.user)
+  purchases!: Purchase[];
 }
