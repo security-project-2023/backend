@@ -16,6 +16,6 @@ export class CreatePurchaseDto {
   price: number;
 
   @ApiProperty()
-  @IsEnum(Status)
-  status: Status;
+  @IsString()
+  time: Date;
 }

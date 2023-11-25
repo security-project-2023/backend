@@ -29,10 +29,15 @@ export class Purchase extends BaseEntity {
   @Column()
   price: number;
 
+  @Column()
+  time: Date;
+
   @Column('enum', { enum: Status })
   status: Status;
 
-  @ManyToOne(() => User, (user) => user.purchases)
+  @ManyToOne(() => User, (user) => user.purchases, {
+    eager: true,
+  })
   user: User;
 
   @CreateDateColumn()
